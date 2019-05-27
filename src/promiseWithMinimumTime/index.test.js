@@ -3,7 +3,7 @@ import promiseWithMinimumTime from './';
 jest.useFakeTimers();
 
 describe('promiseWithMinimumTime function', () => {
-  it('should return a function which has a minimum time that can be resolved/rejected', async () => {
+  it('should return a function which can be resolved/rejected at least on a minimum amount of time', async () => {
     const resolvedValue = 'a-resolved-value';
     const minTime = 2000;
     const myFunction = jest.fn().mockResolvedValue(resolvedValue);
