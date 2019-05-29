@@ -1,0 +1,56 @@
+version: 2
+
+workflows:
+  version: 2
+  tagged-build:
+    jobs:
+      - build
+      - branches:
+          only:
+            - master
+      - publish:
+          requires:
+            - build
+          triggers:
+            branches:
+              only:
+                - master
+              tags:
+                only: /^v.*/
+
+
+
+
+
+
+jobs:
+  build:
+    working_directory: ~/promise-minimum-time
+    docker:
+      - image: circleci/node:lts
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run: yarn --non-interactive
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: yarn lint
+      - run: yarn test --collectCoverage
+      - run: yarn build
+
+  publish:
+    docker:
+      - image: circleci/node:lts
+        requires:
+          - build
+    steps:
+      - checkout
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run: npm publish --access public
+
+

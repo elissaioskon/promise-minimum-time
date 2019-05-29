@@ -11,8 +11,6 @@
     "@babel/preset-env": "7.4.5",
     "@commitlint/cli": "7.6.1",
     "@commitlint/config-conventional": "7.6.0",
-    "@commitlint/prompt": "7.6.1",
-    "@commitlint/travis-cli": "7.6.1",
     "babel-jest": "24.8.0",
     "eslint": "5.16.0",
     "eslint-config-prettier": "4.3.0",
@@ -31,7 +29,7 @@
   ],
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "babel src --out-dir dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\" --copy-files",
+    "build": "babel src --out-dir dist --ignore \"src/**/*.test.js\" ",
     "test": "jest",
     "lint": "eslint",
     "semantic-release": "semantic-release"
