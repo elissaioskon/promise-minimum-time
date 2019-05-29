@@ -1,8 +1,8 @@
 {
-  "name": "@elissaioskon/promise-min-time",
+  "name": "@elissaioskon/promise-minimum-time",
   "version": "2.0.1",
   "main": "dist/index.js",
-  "repository": "https://github.com/elissaioskon/promise-minTime.git",
+  "repository": "https://github.com/elissaioskon/promise-minimum-time.git",
   "author": "Elissaios Kon <elissaioskon@gmail.com>",
   "license": "MIT",
   "devDependencies": {
