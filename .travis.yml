@@ -14,6 +14,9 @@ script:
    # verify that commit messages follow specific format
    - commitlint-travis
 
+    # verify that eslint rules pass
+   - yarn lint
+
    # verify that test are passing
    - yarn test --collectCoverage
 

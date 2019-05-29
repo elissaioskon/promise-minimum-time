@@ -33,6 +33,7 @@
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\" --copy-files",
     "test": "jest",
+    "lint": "eslint",
     "semantic-release": "semantic-release"
   }
 }
