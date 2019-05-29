@@ -7,9 +7,6 @@ cache:
     - node_modules
 notifications:
   email: false
-branches:
-    only:
-      - master
 script:
    # verify that commit messages follow specific format
    - commitlint-travis
