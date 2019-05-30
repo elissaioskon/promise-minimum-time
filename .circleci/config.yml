@@ -6,8 +6,8 @@ workflows:
     jobs:
       - build
       - release:
-        requires:
-          - build
+          requires:
+            - build
 #      - publish:
 #          requires:
 #            - build
