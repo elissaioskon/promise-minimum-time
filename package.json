@@ -1,6 +1,6 @@
 {
   "name": "@elissaioskon/promise-minimum-time",
-  "version": "2.0.1",
+  "version": "0.0.0-development",
   "main": "dist/index.js",
   "repository": "https://github.com/elissaioskon/promise-minimum-time.git",
   "author": "Elissaios Kon <elissaioskon@gmail.com>",
@@ -10,7 +10,10 @@
     "@babel/core": "7.4.5",
     "@babel/preset-env": "7.4.5",
     "@commitlint/cli": "7.6.1",
-    "@commitlint/config-conventional": "7.6.0",
+    "@commitlint/config-angular": "7.6.0",
+    "@semantic-release/changelog": "3.0.2",
+    "@semantic-release/git": "7.0.8",
+    "@semantic-release/github": "5.2.10",
     "babel-jest": "24.8.0",
     "eslint": "5.16.0",
     "eslint-config-prettier": "4.3.0",
@@ -18,10 +21,13 @@
     "husky": "2.3.0",
     "jest": "24.8.0",
     "prettier": "1.17.1",
-    "rimraf": "2.6.3"
+    "rimraf": "2.6.3",
+    "semantic-release": "^15.13.12"
   },
   "dependencies": {
-    "delay": "4.2.0"
+    "delay": "4.2.0",
+    "global": "4.3.2",
+    "semantic-release-cli": "5.1.1"
   },
   "files": [
     "dist",

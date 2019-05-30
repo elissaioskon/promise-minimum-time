@@ -5,15 +5,17 @@ workflows:
   tagged-build:
     jobs:
       - build
-      - publish:
-          requires:
-            - build
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              only:
-                - master
+      - release
+
+#      - publish:
+#          requires:
+#            - build
+#          filters:
+#            tags:
+#              only: /^v.*/
+#            branches:
+#              only:
+#                - master
 
 
 jobs:
@@ -36,14 +38,15 @@ jobs:
       - run: yarn test --collectCoverage
       - run: yarn build
 
-  publish:
+  release:
     docker:
       - image: circleci/node:lts
         requires:
           - build
     steps:
       - checkout
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - run: npm publish --access public
+      - yarn semantic-release
+#      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+#      - run: npm publish --access public
 
 
