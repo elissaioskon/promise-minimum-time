@@ -5,22 +5,15 @@ workflows:
   tagged-build:
     jobs:
       - build
-      - branches:
-          only:
-            - master
       - publish:
           requires:
             - build
-          triggers:
+          filters:
+            tags:
+              only: /^v.*/
             branches:
               only:
                 - master
-              tags:
-                only: /^v.*/
-
-
-
-
 
 
 jobs:
