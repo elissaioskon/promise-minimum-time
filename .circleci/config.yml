@@ -5,7 +5,7 @@ workflows:
   tagged-build:
     jobs:
       - build
-      - release
+      - release:
         requires:
           - build
 #      - publish:
