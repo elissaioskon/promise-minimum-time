@@ -2,25 +2,25 @@ version: 2
 
 workflows:
   version: 2
-  tagged-build:
+  buid_and_test_and_deploy:
     jobs:
-      - build
-      - release:
+      - build_and_test
+      - deploy:
           requires:
-            - build
-#      - publish:
-#          requires:
-#            - build
-#          filters:
-#            tags:
-#              only: /^v.*/
-#            branches:
-#              only:
-#                - master
+            - build_and_test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              only:
+                - master
+
+
+
 
 
 jobs:
-  build:
+  build_and_test:
     working_directory: ~/promise-minimum-time
     docker:
       - image: circleci/node:lts
@@ -38,15 +38,19 @@ jobs:
       - run: yarn lint
       - run: yarn test --collectCoverage
       - run: yarn build
+      - persist_to_workspace:
+          root:  .
+          paths:
+            - node_modules
+            - yarn.lock
+            - dist
 
-  release:
+  deploy:
+    working_directory: ~/promise-minimum-time
     docker:
       - image: circleci/node:lts
-
     steps:
       - checkout
-      - yarn semantic-release
-#      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-#      - run: npm publish --access public
-
-
+      - attach_workspace:
+          at: ~/promise-minimum-time
+      - run: yarn semantic-release

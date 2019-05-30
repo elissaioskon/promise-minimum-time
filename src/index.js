@@ -1,3 +1,1 @@
-import promiseWithMinimumTime from './promiseWithMinimumTime';
-
-export default promiseWithMinimumTime;
+export { default } from './promiseWithMinimumTime';
