@@ -6,7 +6,8 @@ workflows:
     jobs:
       - build
       - release
-
+        requires:
+          - build
 #      - publish:
 #          requires:
 #            - build
@@ -41,8 +42,7 @@ jobs:
   release:
     docker:
       - image: circleci/node:lts
-        requires:
-          - build
+
     steps:
       - checkout
       - yarn semantic-release
