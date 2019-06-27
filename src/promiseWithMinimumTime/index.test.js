@@ -1,4 +1,4 @@
-import promiseWithMinimumTime from './';
+import promiseWithMinimumTime, { promiseMinimumTime } from './';
 
 jest.useFakeTimers();
 
@@ -19,5 +19,16 @@ describe('promiseWithMinimumTime function', () => {
 
     expect(myFunctionWithMinimumTimeResult).toEqual(resolvedValue);
     expect(myFunction).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('promiseMinimumTime function', () => {
+  it('should return the value of the resolved promise that user passed as first argument', async () => {
+    const promiseResolveValue = 'test';
+    const aRandomPromise = Promise.resolve(promiseResolveValue);
+
+    const promiseResult = await promiseMinimumTime(aRandomPromise, 2000);
+
+    expect(promiseResult).toEqual(promiseResolveValue);
   });
 });
