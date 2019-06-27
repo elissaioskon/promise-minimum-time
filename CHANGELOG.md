@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.1.1](https://github.com/elissaioskon/promise-minimum-time/compare/v1.1.0...v1.1.1) (2019-06-27)
+
+
+### Bug Fixes
+
+* forgot to export non hoc function ([4f77853](https://github.com/elissaioskon/promise-minimum-time/commit/4f77853))
+
 # [1.1.0](https://github.com/elissaioskon/promise-minimum-time/compare/v1.0.0...v1.1.0) (2019-06-27)
 
 
