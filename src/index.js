@@ -1,1 +1,1 @@
-export { default } from './promiseWithMinimumTime';
+export { default, promiseMinimumTime } from './promiseWithMinimumTime';
