@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.1.3](https://github.com/elissaioskon/promise-minimum-time/compare/v1.1.2...v1.1.3) (2019-07-03)
+
+
+### Bug Fixes
+
+* semanctic release change github dist ([0236798](https://github.com/elissaioskon/promise-minimum-time/commit/0236798))
+
 ## [1.1.2](https://github.com/elissaioskon/promise-minimum-time/compare/v1.1.1...v1.1.2) (2019-07-03)
 
 
