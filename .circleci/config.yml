@@ -53,4 +53,5 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/promise-minimum-time
+
       - run: yarn semantic-release
