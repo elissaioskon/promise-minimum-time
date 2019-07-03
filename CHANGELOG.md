@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.1.4](https://github.com/elissaioskon/promise-minimum-time/compare/v1.1.3...v1.1.4) (2019-07-03)
+
+
+### Bug Fixes
+
+* test npm semantic release fail ([2a41675](https://github.com/elissaioskon/promise-minimum-time/commit/2a41675))
+
 ## [1.1.3](https://github.com/elissaioskon/promise-minimum-time/compare/v1.1.2...v1.1.3) (2019-07-03)
 
 
