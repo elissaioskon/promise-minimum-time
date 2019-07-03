@@ -15,7 +15,6 @@ workflows:
               only:
                 - master
 
-
 jobs:
   build_and_test:
     working_directory: ~/promise-minimum-time
