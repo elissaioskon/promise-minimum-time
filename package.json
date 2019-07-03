@@ -39,6 +39,6 @@
     "build": "babel src --out-dir dist --ignore \"src/**/*.test.js\" ",
     "test": "jest",
     "lint": "eslint",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release --debug"
   }
 }

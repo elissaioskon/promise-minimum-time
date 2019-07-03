@@ -23,7 +23,7 @@
             {
                 "assets": [
                     {
-                        "path": "dist"
+                        "path": "dist/**/"
                     }
                 ]
             }
