@@ -9,3 +9,6 @@ dist
 # jest coverage
 coverage
 
+# it is used by parcel
+.cache
+

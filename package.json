@@ -38,7 +38,7 @@
   ],
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "parcel src/index.js --no-source-maps",
+    "build": "parcel build src/index.js --no-source-maps",
     "test": "jest",
     "lint": "eslint",
     "semantic-release": "semantic-release --debug"
