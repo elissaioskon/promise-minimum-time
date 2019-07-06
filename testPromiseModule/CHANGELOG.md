@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.1.5](https://github.com/elissaioskon/promise-minimum-time/compare/v1.1.4...v1.1.5) (2019-07-03)
+
+
+### Bug Fixes
+
+* test deploy ([b224a21](https://github.com/elissaioskon/promise-minimum-time/commit/b224a21))
+
 ## [1.1.4](https://github.com/elissaioskon/promise-minimum-time/compare/v1.1.3...v1.1.4) (2019-07-03)
 
 
