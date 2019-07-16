@@ -7,9 +7,9 @@
 
 
 For example if a modal with a loading indicator opens when we export some data, we want to be sure 
-that modal with the loading indicator will be shown for at least some time(2 second for example)
-before it closes. So with this library we can make the export request to completed after at least some
-minimum time in order to be sure that the modal stays open for at least some minimum time.
+that the modal with the loading indicator will be shown for at least some time(2 second for example
+before it closes) in order to have good user experience. So with this library we can make the export 
+request to be completed after at least some minimum time.
   
 
 #### Please check codesandbox example
