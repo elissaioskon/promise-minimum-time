@@ -1,5 +1,6 @@
 {
   "hooks": {
-     "pre-commit": "lint-staged && yarn test:branch",
+     "pre-commit": "lint-staged",
+     "pre-push": "yarn test:branch",
   }
 }
