@@ -1,53 +1,60 @@
 version: 2
 
+# Declare some defaults in order to reuse it.
+# Use &name_here in order to declare it and *name_here in order to use it
+job-defaults: &job-defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:lts
+
 workflows:
   version: 2
-  buid_and_test_and_deploy:
+  build_and_deploy:
     jobs:
-      - build_and_test
+      - checks_and_build
       - deploy:
           requires:
-            - build_and_test
+            - checks_and_build
           filters:
             tags:
               only: /^v.*/
             branches:
-              only:
-                - master
+              ignore: /.*/
 
 jobs:
-  build_and_test:
-    working_directory: ~/promise-minimum-time
-    docker:
-      - image: circleci/node:lts
+  checks_and_build:
+    <<: *job-defaults
 
     steps:
       - checkout
+        # Restore cache in order not not install node_modules every time
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            # when lock file changes, use increasingly general patterns to restore cache
+            - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-v1-{{ .Branch }}-
+            - yarn-packages-v1-
+
       - run: yarn --non-interactive
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
+
+      - save_cache:
           paths:
-            - ./node_modules
+            - ~/.cache/yarn
+          key: yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
       - run: yarn lint
       - run: yarn test --collectCoverage
       - run: yarn build
+
       - persist_to_workspace:
-          root:  .
-          paths:
-            - node_modules
-            - yarn.lock
-            - dist
+          root: ~/repo
+          paths: .
 
   deploy:
-    working_directory: ~/promise-minimum-time
-    docker:
-      - image: circleci/node:lts
+    <<: *job-defaults
     steps:
       - checkout
       - attach_workspace:
-          at: ~/promise-minimum-time
+          at: ~/repo
 
       - run: yarn semantic-release
