@@ -29,18 +29,19 @@ npm install @elissaios/promise-minimum-time
 ```javascript
  import promiseWithMinimumTime, {promiseMinimumTime} from '@elissaios/promise-minimum-time'
  
- const twoMinutesInMs = 2 * 60 * 1000;
- const exportData = () => new Promise(resolve => setTimeout(resolve, 1000))
+ const threeSecInMs = 3 * 1000;
+ 
+ const exportData = () => Promise.resolve()
  
  // Use either promiseWithMinimumTime or promiseMinimumTime
- const exportDataMinimumTime2minutes = promiseWithMinimumTime(exportData, twoMinutesInMs)
+ const exportDataMinimumTime2minutes = promiseWithMinimumTime(exportData, threeSecInMs)
   
   exportDataMinimumTime2minutes().then(()=>{
-    console.log('This log will be logged after 2 minutes')
+    console.log('This log will be logged after 3 seconds')
   })
   
-  promiseMinimumTime(exportData(), 2000).then(()=>{
-       console.log('This log will be logged after 2 minutes')
+  promiseMinimumTime(exportData(), threeSecInMs).then(()=>{
+       console.log('This log will be logged after 3 seconds')
     })
 ```
 
