@@ -1,7 +1,5 @@
 import promiseWithMinimumTime, { promiseMinimumTime } from './';
 
-jest.useFakeTimers();
-
 describe('promiseWithMinimumTime function', () => {
   it('should return a function which can be resolved/rejected at least on a minimum amount of time', async () => {
     const resolvedValue = 'a-resolved-value';
